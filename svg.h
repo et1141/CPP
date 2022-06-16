@@ -3,20 +3,28 @@
 
 #include "xmlStorage.h"
 
-class Triangle{
+class Rectangle{
 
     public:
-    Triangle(){
-        fstream triangle;
-        triangle.open("triangle.html",ios::out);
-        triangle<<"<?xml version="<<quot<<"1.0"<<quot<<" standalone="<<quot<<"no"<<quot<<"?>"<<endl;
-        triangle<<"<svg width="<<quot<<"200"<<quot<<" height="<<quot<<"250"<<quot<<" version="<<quot<<"1.1"<<quot<<" xmlns="<<quot<<"http://www.w3.org/2000/svg"<<quot<<">"<<endl;
-        triangle<<"<rect x="<<quot<<"10"<<quot<<" y="<<quot<<"10"<<quot<<" width="<<quot<<"30"<<quot<<" height="<<quot<<"30"<<quot<<" stroke="<<quot<<"black"<<" fill="
-        <<quot<<"transparent"<<quot<<" stroke-width="<<quot<<"5"<<quot<<"/>"<<endl;
-        triangle<<"</svg>";
+    Rectangle(){
+        fstream rectangle;
+        rectangle.open("rectangle.html",ios::out);
+        rectangle<<"<?xml version="<<quot<<"1.0"<<quot<<" standalone="<<quot<<"no"<<quot<<"?>"<<endl;
+        rectangle<<"<svg width="<<quot<<"200"<<quot<<" height="<<quot<<"250"<<quot<<" version="<<quot<<"1.1"<<quot<<" xmlns="<<quot<<"http://www.w3.org/2000/svg"<<quot<<">"<<endl;
 
+        IndexS xml_rect("rect");
+        xml_rect.addAtribute("x","60");
+        xml_rect.addAtribute("y","10");
+        xml_rect.addAtribute("rx","10");
+        xml_rect.addAtribute("ry","10");
+        xml_rect.addAtribute("width","30");
+        xml_rect.addAtribute("height","30");
+        xml_rect.addAtribute("stroke","blue");
+        xml_rect.addAtribute("fill","transparent");
+        xml_rect.addAtribute("stroke-width","5");
+        rectangle<<xml_rect;
 
-        triangle.close();
+        rectangle.close();
         }
 
 };

@@ -5,6 +5,8 @@
 #include "svg.h"
 #include <unordered_map>
 #include "xmlStorage.h"
+#include <list>
+
 
 
 using namespace std;
@@ -42,7 +44,26 @@ int main()
     infile>>Ignore(8)>>s3;
     cout<<"ignore: "<<s3<<endl;
 
-    Triangle shape1 = Triangle();
+    Rectangle shape1 = Rectangle();
+
+
+    IndexS test1 = IndexS("CV");
+    test1.addAtribute("jezyk","polski");
+    test1.addAtribute("zamineszkaly","Wro");
+    test1.addAtribute("lat","42");
+
+    IndexS test2=IndexS("Zawod");
+    Text test3= Text("Programista");
+    cout<<"Test3: "<<test3<<endl;
+    test2.addContent(&test3);
+    cout<<test2<<endl;
+    cout<<test1<<endl;
+    test1.addContent(&test2);
+    cout<<test1<<endl;
+
+    return 0;
+}
+
 
     /*
     std::unordered_map<string, string> kraj {
@@ -54,12 +75,29 @@ int main()
         cout<<attr(x.first,x.second);
     }
     */
-    IndexS test1 = IndexS("CV");
-    test1.addAtribute("jezyk","polski");
-    test1.addAtribute("zamineszkaly","Wro");
-    test1.addAtribute("lat","42");
-    cout<<test1<<endl;
 
 
-    return 0;
-}
+
+
+/* Some old shit
+    auto test4 = test1.get1st();
+//    cout<<test4.name;
+    cout<<"NOWY:::" <<test4;
+
+
+    list <Content*> cont;
+    Content *wrr=&test3;
+    Content *wrr2=&test2;
+    cont.push_back(wrr);
+    cont.push_back(wrr2);
+  //  Text test5 =(Text)cont.front();
+  //  cout<<test5<<endl;
+    //Text test5= cont.front();
+    //cout<<test5<<endl;
+  //  list<Content*>::iterator it;
+ //   for(it=cont.begin();it!=cont.end();it++)
+ //   {
+ //       (*it)->foo();
+  //  }
+//
+*/
