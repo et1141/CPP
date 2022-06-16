@@ -44,7 +44,7 @@ inline ostream& operator << (ostream &os, const Content &content){ //must be in 
 
 
 
-class IndexP : Content{  //
+class IndexP : public Content{  //
     string name;
     unordered_map<string, string> atributes;
 
@@ -96,7 +96,6 @@ class IndexS : public Content{  //
                     os<<attr(el.first,el.second);
                 }
                 os<<gt<<endl;
-
               //  iterator it;
                 for(auto el: cont){
                    os<< (*el);

@@ -61,6 +61,12 @@ int main()
     test1.addContent(&test2);
     cout<<test1<<endl;
 
+
+    //IndexP:
+    IndexP test4 = IndexP("Rect");
+    test4.addAtribute("x","55");
+    test4.addAtribute("y","63");
+    cout<<test4<<endl;
     return 0;
 }
 
