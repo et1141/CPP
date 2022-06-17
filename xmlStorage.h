@@ -6,21 +6,6 @@
 #include <list>
 #include <iterator>
 
-//Dokument taki sk³ada siê ze znaczników pojedynczych i podwójnych
-//implementuj¹c treœæ skorzystaj z kolekcji listowej z STL
-
-//zbiór atrybutów, czyli par klucz–wartoœæ; implementuj¹c zbiór atrybutów skorzystaj asocjacyjnej z
-//kolekcji nieuporz¹dkowanej. Sam dokument XML sk³ada siê z jednego znacznika zwanego znacznikiem g³ównym.
-
-//  Dokumaent;
-//      Tresc
-//          Znacznik pojedynczy
-//          Znacznik podwojny
-//                  poczatek
-//                  Tresc
-//                  koniec
-//          Napis
-//
 
 class createXmlFigure{
     public:
@@ -34,7 +19,6 @@ class Content{
         friend ostream& operator << (ostream &os, const Content &content);
     public:
         virtual void print(ostream &os) const{};
-        //virtual Content (const Content &oldobj) con;
 };
 
 inline ostream& operator << (ostream &os, const Content &content){ //must be in header file!
@@ -44,9 +28,9 @@ inline ostream& operator << (ostream &os, const Content &content){ //must be in 
 
 
 
-class IndexP : public Content{  //
+class IndexP : public Content{ 
     string name;
-    unordered_map<string, string> atributes;
+    unordered_map <string, string> atributes;
 
     public:
         IndexP (string name):name(name){};
@@ -64,7 +48,7 @@ class IndexP : public Content{  //
             for(auto el : atributes){
                 os<<attr(el.first,el.second);
             }
-            os<<"/"<<gt;
+            os<<"/"<<gt<<endl;
             }
 };
 
@@ -105,7 +89,7 @@ class IndexS : public Content{  //
             }
 };
 
-class Text : public Content{  //<nazwa jêzyk="polski">Czechy</nazwa>  <- text to u nas: Czechy
+class Text : public Content{  //<nazwa jï¿½zyk="polski">Czechy</nazwa>  <- text to u nas: Czechy
     public:
         string txt;
         Text (string text):txt(text){};

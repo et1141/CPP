@@ -4,14 +4,11 @@
 #include "manipulators.h"
 #include "svg.h"
 #include <unordered_map>
-#include "xmlStorage.h"
 #include <list>
 
 
 
 using namespace std;
-
-
 
 
 
@@ -48,12 +45,12 @@ int main()
 
 
     IndexS test1 = IndexS("CV");
-    test1.addAtribute("jezyk","polski");
-    test1.addAtribute("zamineszkaly","Wro");
-    test1.addAtribute("lat","42");
+    test1.addAtribute("Age","42");
+    test1.addAtribute("Experiance","lack of");
+    test1.addAtribute("sth","AAA");
 
-    IndexS test2=IndexS("Zawod");
-    Text test3= Text("Programista");
+    IndexS test2=IndexS("occupation");
+    Text test3= Text("programmer");
     cout<<"Test3: "<<test3<<endl;
     test2.addContent(&test3);
     cout<<test2<<endl;
@@ -67,6 +64,37 @@ int main()
     test4.addAtribute("x","55");
     test4.addAtribute("y","63");
     cout<<test4<<endl;
+
+
+    InitPicture picture = InitPicture();
+    FigureConfig conf1 = FigureConfig();
+    Rectangle rect1 = Rectangle(conf1);
+    conf1.x="50";
+    conf1.y="300";
+    conf1.stroke="blue";
+    Rectangle rect2 = Rectangle(conf1);
+    picture.addPainting(&rect1.index);
+    picture.addPainting(&rect2.index);
+    picture.save("picture1.html");
+
+/*
+    for(int i=10;i<=300;i+=10){
+        conf1.x=i;
+        conf1.y=i;
+        if(i%3==0)
+            conf1.stroke="blue";
+        else if(i%2==0)
+            conf1.stroke="red";
+            else 
+                conf1.stroke="black";
+     Rectangle rect= Rectangle(conf1);
+     picture.addPainting(&rect.index);
+    }
+*/
+
+
+
+
     return 0;
 }
 
@@ -81,29 +109,3 @@ int main()
         cout<<attr(x.first,x.second);
     }
     */
-
-
-
-
-/* Some old shit
-    auto test4 = test1.get1st();
-//    cout<<test4.name;
-    cout<<"NOWY:::" <<test4;
-
-
-    list <Content*> cont;
-    Content *wrr=&test3;
-    Content *wrr2=&test2;
-    cont.push_back(wrr);
-    cont.push_back(wrr2);
-  //  Text test5 =(Text)cont.front();
-  //  cout<<test5<<endl;
-    //Text test5= cont.front();
-    //cout<<test5<<endl;
-  //  list<Content*>::iterator it;
- //   for(it=cont.begin();it!=cont.end();it++)
- //   {
- //       (*it)->foo();
-  //  }
-//
-*/
